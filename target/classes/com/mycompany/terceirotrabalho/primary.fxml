@@ -25,9 +25,9 @@
          </font>
       </Text>
       <TextField fx:id="nomeField" layoutX="116.0" layoutY="120.0" prefHeight="25.0" prefWidth="278.0" />
-      <TextField fx:id="cepField" layoutX="116.0" layoutY="156.0" prefHeight="25.0" prefWidth="169.0" />
+      <TextField fx:id="cepField" layoutX="116.0" layoutY="156.0" prefHeight="25.0" prefWidth="169.0" promptText="00000-000" />
       <Button layoutX="347.0" layoutY="329.0" mnemonicParsing="false" onAction="#limpar" text="Limpar" />
-      <Button layoutX="212.0" layoutY="329.0" mnemonicParsing="false" text="Gravar" />
+      <Button layoutX="212.0" layoutY="329.0" mnemonicParsing="false" onAction="#cadastrarCliente" text="Gravar" />
       <Text layoutX="78.0" layoutY="215.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Rua:">
          <font>
             <Font size="15.0" />
@@ -58,5 +58,6 @@
             <Font size="15.0" />
          </font>
       </Text>
+      <Button layoutX="436.0" layoutY="329.0" mnemonicParsing="false" onAction="#imprimirClientes" text="Printar" />
    </children>
 </AnchorPane>

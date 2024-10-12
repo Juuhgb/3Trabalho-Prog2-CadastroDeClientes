@@ -9,9 +9,7 @@ import java.util.logging.Logger;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 
-
 public class Controller {
-    
     @FXML
     private TextField cepField;
  
@@ -38,22 +36,50 @@ public class Controller {
     private List<Cliente> clientes = new ArrayList<>();
 
     @FXML
-    public void handleCadastrarCliente() {
-        String nome = nomeField.getText();
-        String cidade = cidadeField.getText();
-        String telefone = telefoneField.getText();
-
-        Endereco novoEndereco = new Endereco("","", "", "", "");
-        Cliente novoCliente = new Cliente(nome, novoEndereco, telefone);
-
-        clientes.add(novoCliente);
+    public void cadastrarCliente() {
+        try {
+            String nome = nomeField.getText();
+            String cep = cepField.getText();
+            String telefone = telefoneField.getText();
+            String rua = ruaField.getText();
+            String cidade = cidadeField.getText();
+            String numero = numeroField.getText();
+            String estado = estadoField.getText();
+            
+            if(nome.isEmpty() || cep.isEmpty() || telefone.isEmpty()){
+                Alert alert = new Alert(AlertType.ERROR);
+                alert.setHeaderText(null);
+                alert.setContentText("Todos os campos devem ser preenchidos!");
+                alert.show(); 
+                return;
+            }
+            
+            Endereco novoEndereco = new Endereco(cep, rua, numero, cidade, estado);
+            Cliente novoCliente = new Cliente(nome, novoEndereco, telefone);
+            
+            clientes.add(novoCliente);
+             
+            Alert alert = new Alert(AlertType.INFORMATION);
+            alert.setHeaderText(null);
+            alert.setContentText("Cliente cadastrado com sucesso!");
+            alert.show();
+            
+            limpar();      
+        }catch(Exception e){
+            System.out.println("erro ao cadastrar cliente" + e.getMessage());
+        } 
     }
+              
+    
     
     @FXML
     public void limpar(){
         nomeField.clear();
         cidadeField.clear();
         telefoneField.clear();
+        cepField.clear();
+        estadoField.clear();
+        numeroField.clear();
     }
     
     @FXML
