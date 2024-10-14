@@ -46,7 +46,7 @@ public class Controller {
             String numero = numeroField.getText();
             String estado = estadoField.getText();
             
-            if(nome.isEmpty() || cep.isEmpty() || telefone.isEmpty()){
+            if(nome.isEmpty() || cep.isEmpty() || telefone.isEmpty() || cidade.isEmpty() || numero.isEmpty() || estado.isEmpty()){
                 Alert alert = new Alert(AlertType.ERROR);
                 alert.setHeaderText(null);
                 alert.setContentText("Todos os campos devem ser preenchidos!");
@@ -64,14 +64,13 @@ public class Controller {
             alert.setContentText("Cliente cadastrado com sucesso!");
             alert.show();
             
-            limpar();      
+            limpar();
+            
         }catch(Exception e){
             System.out.println("erro ao cadastrar cliente" + e.getMessage());
         } 
     }
               
-    
-    
     @FXML
     public void limpar(){
         nomeField.clear();
@@ -80,15 +79,12 @@ public class Controller {
         cepField.clear();
         estadoField.clear();
         numeroField.clear();
+        ruaField.clear();
     }
     
     @FXML
     public void buscarEndereco(){
         String cep = cepField.getText();
-        
-        if(cep.isEmpty()){
-            return;
-        }
         
         try {
             Endereco endereco = buscador.buscar(cep);
