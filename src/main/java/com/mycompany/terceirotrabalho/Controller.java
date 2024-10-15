@@ -68,7 +68,15 @@ public class Controller {
             
         }catch(Exception e){
             System.out.println("erro ao cadastrar cliente" + e.getMessage());
-        } 
+        }
+        if(clientes.isEmpty()){
+            System.out.println("Nenhum cliente cadastrado");
+        }
+        else{
+            for(Cliente c: clientes){
+                System.out.println(c.getNome());
+            }
+        }
     }
               
     @FXML
