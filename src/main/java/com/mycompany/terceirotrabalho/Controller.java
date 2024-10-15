@@ -99,7 +99,6 @@ public class Controller {
             Endereco endereco = buscador.buscar(cep);
             if(endereco != null){
                 cidadeField.setText(endereco.getCidade());
-                numeroField.setText(endereco.getNumero());
                 ruaField.setText(endereco.getRua());
                 estadoField.setText(endereco.getEstado());
             }
