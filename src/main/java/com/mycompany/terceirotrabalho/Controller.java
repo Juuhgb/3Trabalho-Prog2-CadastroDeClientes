@@ -73,6 +73,7 @@ public class Controller {
             System.out.println("Nenhum cliente cadastrado");
         }
         else{
+            System.out.println("Clientes cadastrados:");
             for(Cliente c: clientes){
                 System.out.println(c.getNome());
             }
